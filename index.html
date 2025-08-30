@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentro de Familias - Todo por un Alma</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .title-font {
+            font-family: 'Roboto Slab', serif;
+        }
+        
+        .script-font {
+            font-family: 'Dancing Script', cursive;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="max-w-4xl w-full mx-auto">
+        <!-- Header with Logo -->
+        <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center">
+                <img class="logo mr-4" src="./logo.png" alt="Logo Todo por un Alma">
+                <div>
+                    <h1 class="text-2xl font-bold text-blue-800 title-font">Corporación Cristiana</h1>
+                    <h2 class="text-xl font-semibold text-blue-700 title-font">Todo por un Alma</h2>
+                </div>
+            </div>
+            <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-heart mr-2"></i> Fundación de rehabilitación
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden card">
+            <div class="md:flex">
+                <!-- Image Section -->
+                <div class="md:w-2/5 p-8 bg-gradient-to-b from-blue-100 to-blue-200 flex flex-col items-center justify-center">
+                    <div class="relative mb-6">
+                        <img class="w-56 h-56 object-cover rounded-full shadow-lg floating border-4 border-white" 
+                             src="./expositor.jpg" 
+                             alt="Simón Tabera - Sociólogo">
+                        <div class="absolute -bottom-2 -right-2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            <i class="fas fa-star mr-1"></i> Especialista
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-800">Simón Tabera</h3>
+                    <p class="text-blue-600">Sociólogo Mexicano</p>
+                </div>
+                
+                <!-- Content Section -->
+                <div class="md:w-3/5 p-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4 title-font">Encuentro de Familias</h2>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Te invitamos a una charla informativa con el reconocido sociólogo mexicano Simón Tabera, quien nos acompañará a través de Zoom para apoyar a las familias en su proceso.
+                    </p>
+                    
+                    <div class="bg-blue-50 rounded-lg p-5 mb-6 border border-blue-100">
+                        <h3 class="font-semibold text-blue-800 text-lg mb-3">Tema Principal:</h3>
+                        <p class="text-blue-700">"Comprendiendo las adicciones y cómo apoyar el proceso de recuperación desde el seno familiar"</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-center">
+                            <div class="icon-circle bg-blue-100 text-blue-600 rounded-full mr-3">
+                                <i class="fas fa-video text-xl"></i>
+                            </div>
+                            <span class="text-gray-700">Por Zoom</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="icon-circle bg-blue-100 text-blue-600 rounded-full mr-3">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <span class="text-gray-700">Próximamente</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-lg p-4 text-center">
+                        <p class="text-gray-700">Para más información sobre la fecha y hora del evento, estaremos anunciándolo pronto en este grupo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+            <div class="bg-white p-5 rounded-xl shadow-md text-center">
+                <div class="icon-circle bg-blue-100 text-blue-600 rounded-full mx-auto mb-3">
+                    <i class="fas fa-hands-helping text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Apoyo Familiar</h3>
+                <p class="text-gray-600 text-sm">Acompañamiento en el proceso de recuperación de sus seres queridos</p>
+            </div>
+            
+            <div class="bg-white p-5 rounded-xl shadow-md text-center">
+                <div class="icon-circle bg-blue-100 text-blue-600 rounded-full mx-auto mb-3">
+                    <i class="fas fa-comments text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Charla Especializada</h3>
+                <p class="text-gray-600 text-sm">Con el sociólogo Simón Tabera, experto en el tema de adicciones</p>
+            </div>
+            
+            <div class="bg-white p-5 rounded-xl shadow-md text-center">
+                <div class="icon-circle bg-blue-100 text-blue-600 rounded-full mx-auto mb-3">
+                    <i class="fas fa-users text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Comunidad</h3>
+                <p class="text-gray-600 text-sm">Conoce otras familias que están pasando por procesos similares</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-10 p-6 bg-blue-800 text-white rounded-2xl shadow-lg">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img class="logo mr-4" src="./logo.png" alt="Logo Todo por un Alma">
+                    <div>
+                        <h3 class="text-xl font-bold title-font">Corporación Cristiana</h3>
+                        <h4 class="text-lg font-semibold title-font">Todo por un Alma</h4>
+                    </div>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-blue-100">Fundación de rehabilitación y apoyo</p>
+                    <p class="text-blue-200 text-sm mt-1 script-font">"Porque donde dos o tres se reúnen en mi nombre, allí estoy yo en medio de ellos" - Mateo 18:20</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Efecto de escritura para el título
+        document.addEventListener('DOMContentLoaded', function() {
+            const phrases = ["Encuentro de Familias", "Apoyo y Esperanza", "Juntos en la Recuperación"];
+            let currentPhrase = 0;
+            let currentLetter = 0;
+            let typingSpeed = 100;
+            let deletingSpeed = 50;
+            let pauseTime = 2000;
+            
+            const titleElement = document.querySelector('.text-3xl');
+            const originalText = titleElement.textContent;
+            
+            function type() {
+                if (currentLetter < phrases[currentPhrase].length) {
+                    titleElement.textContent = phrases[currentPhrase].substring(0, currentLetter + 1);
+                    currentLetter++;
+                    setTimeout(type, typingSpeed);
+                } else {
+                    setTimeout(erase, pauseTime);
+                }
+            }
+            
+            function erase() {
+                if (currentLetter > 0) {
+                    titleElement.textContent = phrases[currentPhrase].substring(0, currentLetter - 1);
+                    currentLetter--;
+                    setTimeout(erase, deletingSpeed);
+                } else {
+                    currentPhrase = (currentPhrase + 1) % phrases.length;
+                    setTimeout(type, typingSpeed);
+                }
+            }
+            
+            // Iniciar el efecto después de un breve retraso
+            setTimeout(type, 1000);
+        });
+    </script>
+</body>
+</html>
