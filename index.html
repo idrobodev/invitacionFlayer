@@ -6,6 +6,7 @@
     <title>Encuentro de Familias - Todo por un Alma</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap');
         
@@ -62,10 +63,129 @@
         .script-font {
             font-family: 'Dancing Script', cursive;
         }
+        
+        /* Estilos para el reproductor de audio */
+        .audio-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50px;
+            padding: 12px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .audio-controls {
+            display: flex;
+            align-items: center;
+        }
+        
+        .audio-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+        }
+        
+        .audio-btn:hover {
+            background: #2563eb;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .audio-info {
+            font-size: 0.85rem;
+            color: #4b5563;
+            max-width: 200px;
+        }
+        
+        /* Ocultar el reproductor nativo */
+        #backgroundMusic {
+            display: none;
+        }
+        
+        /* Estilo para el botón de Zoom */
+        .zoom-btn {
+            background: linear-gradient(135deg, #2d8cff 0%, #2b6cb0 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(44, 108, 176, 0.4);
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .zoom-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(44, 108, 176, 0.5);
+            background: linear-gradient(135deg, #2b6cb0 0%, #2d8cff 100%);
+        }
+        
+        /* Estilo para la sección de hora */
+        .time-section {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            border-left: 4px solid #0097a7;
+        }
+        
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .audio-player {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                border-radius: 15px;
+                padding: 10px 15px;
+            }
+            
+            .audio-info {
+                font-size: 0.75rem;
+            }
+            
+            .audio-btn {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+            }
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Reproductor de audio fijo -->
+    <div class="audio-player">
+        <div class="audio-controls">
+            <button id="playPauseBtn" class="audio-btn">
+                <i class="fas fa-play"></i>
+            </button>
+            <div class="audio-info">
+                <p class="font-medium">Música de fondo: "Canción de esperanza"</p>
+                <div class="volume-control flex items-center mt-1">
+                    <i class="fas fa-volume-down text-gray-500 mr-2 text-sm"></i>
+                    <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.5" class="w-20">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Elemento de audio para la música de fondo -->
+    <audio id="backgroundMusic" loop>
+        <source src="./audio.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
     <div class="max-w-4xl w-full mx-auto">
         <!-- Header with Logo -->
         <div class="flex items-center justify-between mb-8">
@@ -89,12 +209,12 @@
                     <div class="relative mb-6">
                         <img class="w-56 h-56 object-cover rounded-full shadow-lg floating border-4 border-white" 
                              src="./expositor.jpg" 
-                             alt="Simón Tabera - Sociólogo">
+                             alt="Simón Tavera - Sociólogo">
                         <div class="absolute -bottom-2 -right-2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
                             <i class="fas fa-star mr-1"></i> Especialista
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold text-blue-800">Simón Tabera</h3>
+                    <h3 class="text-xl font-bold text-blue-800">Simón Tavera</h3>
                     <p class="text-blue-600">Sociólogo mexicano</p>
                 </div>
                 
@@ -102,7 +222,7 @@
                 <div class="md:w-3/5 p-8">
                     <h2 class="text-3xl font-bold text-gray-800 mb-4 title-font">Encuentro de Familias</h2>
                     <p class="text-gray-700 mb-6 text-lg">
-                        Te invitamos a una charla informativa con el reconocido sociólogo mexicano Simón Tabera, quien nos acompañará a través de Zoom para apoyar a las familias en su proceso.
+                        Te invitamos a una charla informativa con el reconocido sociólogo mexicano Simón Tavera, quien nos acompañará a través de Zoom para apoyar a las familias en su proceso.
                     </p>
                     
                     <div class="bg-blue-50 rounded-lg p-5 mb-6 border border-blue-100">
@@ -110,7 +230,7 @@
                         <p class="text-blue-700">"Comprendiendo las adicciones y cómo apoyar el proceso de recuperación desde el seno familiar"</p>
                     </div>
                     
-                    <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <div class="flex items-center">
                             <div class="icon-circle bg-blue-100 text-blue-600 rounded-full mr-3">
                                 <i class="fas fa-video text-xl"></i>
@@ -119,14 +239,35 @@
                         </div>
                         <div class="flex items-center">
                             <div class="icon-circle bg-blue-100 text-blue-600 rounded-full mr-3">
-                                <i class="fas fa-clock text-xl"></i>
+                                <i class="fas fa-calendar text-xl"></i>
                             </div>
                             <span class="text-gray-700">Martes 2 de septiembre</span>
                         </div>
+                        <div class="flex items-center">
+                            <div class="icon-circle bg-blue-100 text-blue-600 rounded-full mr-3">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <span class="text-gray-700" id="colombiaTime">8:00 PM (Colombia)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="icon-circle bg-blue-100 text-blue-600 rounded-full mr-3">
+                                <i class="fas fa-user-clock text-xl"></i>
+                            </div>
+                            <span class="text-gray-700" id="localTime"></span>
+                        </div>
+                    </div>
+                    
+                 
+                    
+                    <!-- Botón de unirse a Zoom -->
+                    <div class="mb-6 text-center">
+                        <a id="zoomLink" href="#" target="_blank" class="zoom-btn inline-flex items-center justify-center px-6 py-3 text-white font-bold text-lg">
+                            <i class="fas fa-video mr-2"></i> Unirse a la videollamada de Zoom
+                        </a>
                     </div>
                     
                     <div class="bg-gray-50 rounded-lg p-4 text-center">
-                        <p class="text-gray-700">Para más información sobre la fecha y hora del evento, estaremos anunciándolo pronto en este grupo.</p>
+                        <p class="text-gray-700">Para más información sobre el evento, estaremos anunciándolo pronto en el grupo de whatsapp.</p>
                     </div>
                 </div>
             </div>
@@ -147,7 +288,7 @@
                     <i class="fas fa-comments text-2xl"></i>
                 </div>
                 <h3 class="font-semibold text-gray-800 mb-2">Charla Especializada</h3>
-                <p class="text-gray-600 text-sm">Con el sociólogo Simón Tabera, experto en el tema de adicciones</p>
+                <p class="text-gray-600 text-sm">Con el sociólogo Simón Tavera, experto en el tema de adicciones</p>
             </div>
             
             <div class="bg-white p-5 rounded-xl shadow-md text-center">
@@ -213,6 +354,66 @@
             
             // Iniciar el efecto después de un breve retraso
             setTimeout(type, 1000);
+            
+            // Configuración de la música de fondo
+            const audio = document.getElementById('backgroundMusic');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const volumeControl = document.getElementById('volumeControl');
+            
+            // Cargar música local
+            audio.src = './audio.mp3';
+            
+            playPauseBtn.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play().catch(function(error) {
+                        console.log("La reproducción automática fue prevenida: ", error);
+                        // Mostrar mensaje para interactuar con la página primero
+                        alert("Por favor, haga clic en cualquier parte de la página para activar la música de fondo.");
+                    });
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    audio.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            });
+            
+            volumeControl.addEventListener('input', function() {
+                audio.volume = volumeControl.value;
+            });
+            
+            // Permitir la reproducción de audio después de la interacción del usuario
+            document.body.addEventListener('click', function() {
+                if (audio.paused) {
+                    // Intentar reproducir solo si el usuario ya ha interactuado con el botón de play
+                    if (playPauseBtn.querySelector('.fa-pause')) {
+                        audio.play().catch(error => console.log("Error al reproducir: ", error));
+                    }
+                }
+            });
+            
+            // Configuración de la hora
+            function updateTime() {
+                // Hora de Colombia (UTC-5)
+                const options = { timeZone: "America/Bogota", hour: '2-digit', minute: '2-digit', hour12: true };
+                const colombiaTime = new Date().toLocaleTimeString('es-ES', options);
+                document.getElementById('colombiaTime').textContent = `8:00 PM (Colombia - Actual: ${colombiaTime})`;
+                
+                // Hora local del usuario
+                const localTime = new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', hour12: true });
+                document.getElementById('localTime').textContent = `Hora local: ${localTime}`;
+            }
+            
+            // Actualizar la hora inmediatamente y cada minuto
+            updateTime();
+            setInterval(updateTime, 60000);
+            
+            // Simulación de enlace de Zoom (debe ser reemplazado con el enlace real)
+            document.getElementById('zoomLink').href = "https://zoom.us/j/1234567890?pwd=abcdefghijk";
+            
+            // Mostrar alerta informativa sobre la música
+            setTimeout(function() {
+                alert("¡Bienvenido! Esta página incluye música de fondo. Puede controlarla con el reproductor en la esquina inferior derecha.");
+            }, 2000);
         });
     </script>
 </body>
